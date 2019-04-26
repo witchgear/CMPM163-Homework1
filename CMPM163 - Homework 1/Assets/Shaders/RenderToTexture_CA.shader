@@ -88,17 +88,17 @@
                 for(int i = 0; i < 8; i++)
                 {
                     // if it is a red pixel, increment red count
-                    if(arr[i].r > 0.5 && arr[i].b < 0.5)
+                    if(arr[i].r > 0.5 && arr[i].b < 0.5 && arr[i].g < 0.5)
                     {
                         cnt_red++;
                     }
                     // else if it is a blue pixel, increment blue count
-                    else if(arr[i].b > 0.5 && arr[i].r < 0.5)
+                    else if(arr[i].b > 0.5 && arr[i].r < 0.5 && arr[i].g < 0.5)
                     {
                         cnt_blue++;
                     }
                     // else if it is a purple pixel, increment purple count
-                    else if(arr[i].r > 0.5 && arr[i].b > 0.5)
+                    else if(arr[i].r > 0.5 && arr[i].b > 0.5 && arr[i].g < 0.5)
                     {
                         cnt_purple++;
                     }
@@ -111,89 +111,89 @@
                 if(C.r >= 0.5 && C.b >= 0.5 && C.g < 0.5)
                 {
                     // if the cell has two or three neighbors, it lives
-                    // if (cnt == 2 || cnt == 3)
-                    // {
-                    //     return float4(1.0, 0.0, 1.0, 1.0);
-                    // }
-                    // else // if the cell has less than 2 or more than 3 neigbors, it dies
-                    // {
-                    //     return float4(0.0, 0.0, 0.0, 1.0);
-                    // }
-                    return float4(1.0, 0.0, 1.0, 1.0);
+                    if (cnt == 2 || cnt == 3)
+                    {
+                        return float4(1.0, 0.0, 1.0, 1.0);
+                    }
+                    else // if the cell has less than 2 or more than 3 neigbors, it dies
+                    {
+                        return float4(1.0, 1.0, 1.0, 1.0);
+                    }
+                    // return float4(1.0, 0.0, 1.0, 1.0);
                 }
                 // else if the cell is alive and red
-                else if(C.r >= 0.5)
+                else if(C.r >= 0.5 && C.b < 0.5 && C.g < 0.5)
                 {
                     // if the cell has two or three neighbors, it lives
-                    // if(cnt == 2 || cnt == 3)
-                    // {
-                    //     // if there are any purple texels, or more blue than red, the cell becomes purple
-                    //     if(cnt_purple > 0 || cnt_blue > cnt_red)
-                    //     {
-                    //         return float4(1.0, 0.0, 1.0, 1.0);
-                    //     }
-                    //     // else the cell remains red
-                    //     else
-                    //     {
-                    //         return float4(1.0, 0.0, 0.0, 1.0);
-                    //     }
-                    // }
-                    // else // if the cell has less than 2 or more than 3 neigbors, it dies
-                    // {
-                    //     return float4(0.0, 0.0, 0.0, 1.0);
-                    // }
-                    return float4(0.0, 1.0, 0.0, 1.0);
+                    if(cnt == 2 || cnt == 3)
+                    {
+                        // if there are any purple texels, or more blue than red, the cell becomes purple
+                        if(cnt_purple > 0 || cnt_blue > cnt_red)
+                        {
+                            return float4(1.0, 0.0, 1.0, 1.0);
+                        }
+                        // else the cell remains red
+                        else
+                        {
+                            return float4(1.0, 0.0, 0.0, 1.0);
+                        }
+                    }
+                    else // if the cell has less than 2 or more than 3 neigbors, it dies
+                    {
+                        return float4(1.0, 1.0, 1.0, 1.0);
+                    }
+                    // return float4(1.0, 0.0, 0.0, 1.0);
                 }
                 // else if the cell is alive and blue
-                else if(C.b >= 0.5)
+                else if(C.b >= 0.5 && C.r < 0.5 && C.g < 0.5)
                 {
-                    // // if the cell has two or three neighbors, it lives
-                    // if(cnt == 2 || cnt == 3)
-                    // {
-                    //     // if there are any purple texels, or more red than blue, the cell becomes purple
-                    //     if(cnt_purple > 0 || cnt_red > cnt_blue)
-                    //     {
-                    //         return float4(1.0, 0.0, 1.0, 1.0);
-                    //     }
-                    //     // else the cell remains blue
-                    //     else
-                    //     {
-                    //         return float4(0.0, 0.0, 1.0, 1.0);
-                    //     }
-                    // }
-                    // else // if the cell has less than 2 or more than 3 neigbors, it dies
-                    // {
-                    //     return float4(0.0, 0.0, 0.0, 1.0);
-                    // }
-                    return float4(0.0, 0.0, 1.0, 1.0);
+                    // if the cell has two or three neighbors, it lives
+                    if(cnt == 2 || cnt == 3)
+                    {
+                        // if there are any purple texels, or more red than blue, the cell becomes purple
+                        if(cnt_purple > 0 || cnt_red > cnt_blue)
+                        {
+                            return float4(1.0, 0.0, 1.0, 1.0);
+                        }
+                        // else the cell remains blue
+                        else
+                        {
+                            return float4(0.0, 0.0, 1.0, 1.0);
+                        }
+                    }
+                    else // if the cell has less than 2 or more than 3 neigbors, it dies
+                    {
+                        return float4(1.0, 1.0, 1.0, 1.0);
+                    }
+                    // return float4(0.0, 0.0, 1.0, 1.0);
                 }
                 // else the cell is dead
                 else
                 {
-                    // // if the cell has 3 live neighbors, it comes to life
-                    // if(cnt == 3)
-                    // {
-                    //     // if there are any purple cells, it becomes purple
-                    //     if(cnt_purple > 0)
-                    //     {
-                    //         return float4(1.0, 0.0, 1.0, 1.0);
-                    //     }
-                    //     // else if there are more red than blue, it becomes red
-                    //     else if(cnt_red > cnt_blue)
-                    //     {
-                    //         return float4(1.0, 0.0, 0.0, 1.0);
-                    //     }
-                    //     // else there are more blue than red, it becomes blue
-                    //     else
-                    //     {
-                    //         return float4(0.0, 0.0, 1.0, 1.0);
-                    //     }
-                    // }
-                    // else // else it stays dead
-                    // {
-                    //     return float4(0.0, 0.0, 0.0, 1.0);
-                    // }
-                    return float4(0.0, 0.0, 0.0, 1.0);
+                    // if the cell has 3 live neighbors, it comes to life
+                    if(cnt == 3)
+                    {
+                        // if there are any purple cells, it becomes purple
+                        if(cnt_purple > 0)
+                        {
+                            return float4(1.0, 0.0, 1.0, 1.0);
+                        }
+                        // else if there are more red than blue, it becomes red
+                        else if(cnt_red > cnt_blue)
+                        {
+                            return float4(1.0, 0.0, 0.0, 1.0);
+                        }
+                        // else there are more blue than red, it becomes blue
+                        else
+                        {
+                            return float4(0.0, 0.0, 1.0, 1.0);
+                        }
+                    }
+                    else // else it stays dead
+                    {
+                        return float4(1.0, 1.0, 1.0, 1.0);
+                    }
+                    // return float4(1.0, 1.0, 1.0, 1.0);
                 }
 
                 // if (C.r >= 0.5) { //cell is alive

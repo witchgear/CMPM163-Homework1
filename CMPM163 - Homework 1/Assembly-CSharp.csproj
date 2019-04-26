@@ -61,7 +61,7 @@
      <None Include="Assets\Shaders\OutputTexture.shader" />
      <None Include="Assets\Shaders\Twist.shader" />
      <None Include="Assets\Shaders\Texture.shader" />
-     <None Include="Assets\Shaders\phonggg.shader" />
+     <None Include="Assets\Shaders\Edge.shader" />
      <None Include="Assets\Shaders\RenderToTexture_CA.shader" />
      <None Include="Assets\Shaders\PhongTexture.shader" />
      <None Include="Assets\Shaders\Phong.shader" />

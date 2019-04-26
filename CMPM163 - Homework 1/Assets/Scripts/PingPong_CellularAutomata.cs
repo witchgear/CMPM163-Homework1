@@ -41,7 +41,7 @@ public class PingPong_CellularAutomata : MonoBehaviour
                     {
                         texA.SetPixel(i, j, Color.blue);
                     }
-                    else // right side of the texture
+                    else if(i > width / 2) // right side of the texture
                     {
                         texA.SetPixel(i, j, Color.red);
                     }

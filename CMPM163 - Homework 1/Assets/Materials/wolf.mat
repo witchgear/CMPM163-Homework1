@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: wolf
-  m_Shader: {fileID: 4800000, guid: 88af493c476474f48a37f804da339b5a, type: 3}
+  m_Shader: {fileID: 4800000, guid: 37f7f50e0d2180f4aa15066a705e872d, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
