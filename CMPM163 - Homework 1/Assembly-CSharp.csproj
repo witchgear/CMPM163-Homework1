@@ -54,20 +54,14 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\KeyboardInput.cs" />
-     <Compile Include="Assets\Scripts\MousePosition.cs" />
      <Compile Include="Assets\Scripts\PingPong_CellularAutomata.cs" />
-     <Compile Include="Assets\Scripts\Shininess.cs" />
+     <Compile Include="Assets\Scripts\Rotate.cs" />
+     <Compile Include="Assets\Scripts\Translate.cs" />
      <None Include="Assets\Shaders\VertexRotation.shader" />
      <None Include="Assets\Shaders\OutputTexture.shader" />
-     <None Include="Assets\Shaders\Twist.shader" />
-     <None Include="Assets\Shaders\Texture.shader" />
      <None Include="Assets\Shaders\Edge.shader" />
      <None Include="Assets\Shaders\RenderToTexture_CA.shader" />
-     <None Include="Assets\Shaders\PhongTexture.shader" />
      <None Include="Assets\Shaders\Phong.shader" />
-     <None Include="Assets\Shaders\SolidColor.shader" />
-     <None Include="Assets\Shaders\MouseInput.shader" />
-     <None Include="Assets\Shaders\Blur.shader" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/Cho_2/Desktop/programs/CM163/CMPM163-Homework1/CMPM163 - Homework 1/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>

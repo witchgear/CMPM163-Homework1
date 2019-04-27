@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Dog_diffuse
-  m_Shader: {fileID: 4800000, guid: 20e9c1bac7652e94896a5e3b8df28260, type: 3}
+  m_Shader: {fileID: 4800000, guid: 37f7f50e0d2180f4aa15066a705e872d, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -23,5 +23,8 @@ Material:
         m_Texture: {fileID: 2800000, guid: ca1a2eb2feadc8949b63c8dbd15cafaa, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors: []
+    m_Floats:
+    - _Shininess: 30
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _SpecColor: {r: 1, g: 1, b: 1, a: 1}

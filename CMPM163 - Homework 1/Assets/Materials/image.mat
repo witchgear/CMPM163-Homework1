@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: image
-  m_Shader: {fileID: 4800000, guid: c142f97f1d3ef0c4aa43cecc1eed4cb9, type: 3}
+  m_Shader: {fileID: 4800000, guid: b479451b5d94ea3499ff95993fa07719, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -63,7 +63,9 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _LookUpDistance: 1
     - _Metallic: 0
+    - _Mix: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02

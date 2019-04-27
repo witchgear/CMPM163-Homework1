@@ -350,8 +350,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Press up arrow key to increase blur effect, \npress down arrow key to decrease
-    blur effect"
+  m_Text: "Press up arrow key to increase sharpen effect, \npress down arrow key to
+    decrease sharpen effect"
 --- !u!222 &1119252595
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -613,4 +613,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 918bf8386924a144bb2402db7947034d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  increment: 0.5
+  increment: 0.05

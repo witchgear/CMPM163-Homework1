@@ -61,8 +61,11 @@
            );
         
         
-        float3x3 Gx = float3x3( -1, -2, -1, 0, 0, 0, 1, 2, 1 ); // x direction kernel
-        float3x3 Gy = float3x3( -1, 0, 1, -2, 0, 2, -1, 0, 1 ); // y direction kernel
+        // float3x3 Gx = float3x3( -1, -2, -1, 0, 0, 0, 1, 2, 1 ); // x direction kernel
+        // float3x3 Gy = float3x3( -1, 0, 1, -2, 0, 2, -1, 0, 1 ); // y direction kernel
+
+        float3x3 Gx = float3x3(0, -1, 0, -1, 5, -1, 0, -1, 0); // x direction kernel
+        float3x3 Gy = float3x3(0, -1, 0, -1, 5, -1, 0, -1, 0); // y direction kernel
 
         
         // fetch the 3x3 neighborhood of a fragment
@@ -97,23 +100,23 @@
        // else if (_Mix < 0.0) { _Mix = 0.0; }
         
         float4 edgeCol = lerp(texPix, edgePix, _Mix); 
-        //return edgeCol;
+        return edgeCol;
         
         
-        float numCells = 5;
+        // float numCells = 5;
         
         //stripes
-        float sum = floor(i.uv.x * numCells); // + floor(i.uv.y * numCells);
+        // float sum = floor(i.uv.x * numCells); // + floor(i.uv.y * numCells);
         
         //checkerboard
         //float sum = floor(i.uv.x * numCells) + floor(i.uv.y * numCells);
          
         //fmod returns the *remainder* of x/y 
-        if (fmod(sum,2.0)==0.0) {
-           return edgeCol;
-        } else {
-           return texPix;
-        }
+        // if (fmod(sum,2.0)==0.0) {
+        //    return edgeCol;
+        // } else {
+        //    return texPix;
+        // }
         
         
          

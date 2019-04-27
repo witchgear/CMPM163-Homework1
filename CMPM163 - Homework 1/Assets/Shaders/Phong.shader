@@ -7,6 +7,7 @@ Shader "Custom/Phong"
         _Color ("Color", Color) = (1, 1, 1, 1) //The color of our object
         _Shininess ("Shininess", Float) = 10 //Shininess
         _SpecColor ("Specular Color", Color) = (1, 1, 1, 1) //Specular highlights color
+        _MainTex ("Texture", 2D) = "Black" {}
     }
     
     SubShader
@@ -32,6 +33,7 @@ Shader "Custom/Phong"
             {
                     float4 vertex : POSITION;
                     float3 normal : NORMAL;
+                    float2 uv : TEXCOORD0;
             };
 
             struct v2f
@@ -39,8 +41,11 @@ Shader "Custom/Phong"
                     float4 vertex : SV_POSITION;
                     float3 normal : NORMAL;       
                     float3 vertexInWorldCoords : TEXCOORD1;
+                    float2 uv : TEXCOORD0;
             };
 
+            sampler2D _MainTex;
+            float4 _MainTex_ST;
  
            v2f vert(appdata v)
            { 
@@ -48,7 +53,7 @@ Shader "Custom/Phong"
                 o.vertexInWorldCoords = mul(unity_ObjectToWorld, v.vertex); //Vertex position in WORLD coords
                 o.normal = UnityObjectToWorldNormal(v.normal); //Normal 
                 o.vertex = UnityObjectToClipPos(v.vertex); 
-                
+                o.uv = TRANSFORM_TEX(v.uv, _MainTex);
               
 
                 return o;
@@ -89,7 +94,8 @@ Shader "Custom/Phong"
                 float3 specular = Ks * Kl * specularVal;
                 
                 //FINAL COLOR OF FRAGMENT
-                return float4(ambient + diffuse + specular, 1.0);
+                float3 color = (ambient + diffuse) * tex2D(_MainTex, i.uv) + specular;
+                return float4(color, 1.0);
                 //return float4(ambient, 1.0);
 
             }

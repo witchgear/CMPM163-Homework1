@@ -128,7 +128,7 @@
                     if(cnt == 2 || cnt == 3)
                     {
                         // if there are any purple texels, or more blue than red, the cell becomes purple
-                        if(cnt_purple > 0 || cnt_blue > cnt_red)
+                        if(cnt_purple > 1 || cnt_blue > cnt_red + 1)
                         {
                             return float4(1.0, 0.0, 1.0, 1.0);
                         }
@@ -151,7 +151,7 @@
                     if(cnt == 2 || cnt == 3)
                     {
                         // if there are any purple texels, or more red than blue, the cell becomes purple
-                        if(cnt_purple > 0 || cnt_red > cnt_blue)
+                        if(cnt_purple > 1 || cnt_red > cnt_blue + 1)
                         {
                             return float4(1.0, 0.0, 1.0, 1.0);
                         }
